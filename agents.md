@@ -1,15 +1,22 @@
-# Java Clean Architecture & 12-Factor App Guidelines
+# Java Clean Architecture & CI/CD Guidelines
 
 This document provides architectural rules and coding standards for AI agents working on this project.
 
 ## 1. Core Architecture: Clean Architecture (Hexagonal)
 
-### Project Structure
-The project is organized into four Maven modules:
-- `domain`: Enterprise logic (Entities, Domain Exceptions, Base Classes). **No external dependencies** (Spring, Hibernate, etc.).
-- `application`: Business logic (Use Cases, Services, DTOs, Repository Interfaces). Depends on `domain`.
-- `infrastructure`: Implementation details (Spring Data JPA, Persistence, External Services). Depends on `application` and `domain`.
-- `api`: The entry point (Spring Boot Controllers, Global Exception Handling, Configuration). Depends on `application`.
+### Repository Structure (GitOps Friendly)
+The project is a flattened multi-module Maven project at the repository root to ensure full compatibility with modern CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins).
+- **Project Root**: Contains `pom.xml`, `Dockerfile`, `docker-compose.yml`, and CI configuration (`.github/`).
+- **Modules**:
+  - `domain`: Enterprise logic (Entities, Domain Exceptions, Base Classes). **No external dependencies**.
+  - `application`: Business logic (Use Cases, Services, DTOs, Repository Interfaces). Depends on `domain`.
+  - `infrastructure`: Implementation details (Spring Data JPA, Persistence, External Services). Depends on `application` and `domain`.
+  - `api`: The entry point (Spring Boot Controllers, Global Exception Handling, Configuration). Depends on `application`.
+
+### CI/CD & GitOps Readiness
+- **GitHub Actions**: Pipeline defined in `.github/workflows/ci.yml`. It automates building, testing, and Docker image verification.
+- **Statelessness**: The application is fully stateless (12-factor principle VI), making it ready for Kubernetes/GitOps deployments.
+- **Environment Parity**: Configuration is strictly via environment variables (e.g., `DATABASE_URL`, `PORT`).
 
 ### Use Case-Based Folders
 Business logic is organized by domain entity in `application/src/main/java/com/cleanarch/flashcards/application/features`.
