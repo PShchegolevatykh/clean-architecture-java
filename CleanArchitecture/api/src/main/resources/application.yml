@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: flashcards-api
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:flashcardsdb}
+    driverClassName: org.h2.Driver
+    username: ${DATABASE_USER:sa}
+    password: ${DATABASE_PASSWORD:password}
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: ${PORT:8080}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
