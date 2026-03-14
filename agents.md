@@ -97,7 +97,7 @@ The application is built to be cloud-native and follow 12-factor principles:
 
 ## 8. Coding Standards
 
-- **Java Version:** **Java 25 (LTS)**. Use modern features (Records, Pattern Matching, Sealed Classes).
+- **Java Version:** **Java 21 (LTS)**. Use modern features (Records, Pattern Matching, Sealed Classes).
 - **Indentation:** **SPACES** (4 per level).
 - **Maven:** Use Maven for dependency management and build lifecycle.
 - **Clean Code:** Use meaningful names, small methods, and follow SOLID principles.
