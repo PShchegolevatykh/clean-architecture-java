@@ -21,3 +21,9 @@ server:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+app:
+  security:
+    jwt:
+      secret: ${JWT_SECRET:very-long-and-secure-secret-key-at-least-256-bits}
+    client-id: ${CLIENT_ID:client-id}
+    client-secret: ${CLIENT_SECRET:client-secret}
