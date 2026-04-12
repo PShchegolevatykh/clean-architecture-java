@@ -2,18 +2,15 @@ spring:
   application:
     name: flashcards-api
   datasource:
-    url: ${DATABASE_URL:jdbc:h2:mem:flashcardsdb}
-    driverClassName: org.h2.Driver
+    url: ${DATABASE_URL:jdbc:h2:mem:flashcards;DB_CLOSE_DELAY=-1}
     username: ${DATABASE_USER:sa}
     password: ${DATABASE_PASSWORD:password}
+    driverClassName: ${DATABASE_DRIVER:org.h2.Driver}
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: ${DATABASE_PLATFORM:org.hibernate.dialect.H2Dialect}
     hibernate:
       ddl-auto: update
     show-sql: false
-  h2:
-    console:
-      enabled: true
 
 server:
   port: ${PORT:8080}

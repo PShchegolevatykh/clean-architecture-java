@@ -1,6 +1,9 @@
 package com.cleanarch.flashcards.api.controllers;
 
 import com.cleanarch.flashcards.api.models.TokenRequest;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +34,10 @@ public class TokenController {
         this.encoder = encoder;
     }
 
+    @Operation(summary = "Issue a JWT token", description = "Provides a JWT token for M2M communication using client credentials.")
+    @ApiResponse(responseCode = "200", description = "Token issued successfully")
+    @ApiResponse(responseCode = "401", description = "Invalid client credentials")
+    @SecurityRequirements // This endpoint does not require the Bearer token
     @PostMapping("/token")
     public ResponseEntity<?> token(@RequestBody TokenRequest request) {
         if (!expectedClientId.equals(request.clientId()) || !expectedClientSecret.equals(request.clientSecret())) {
