@@ -1,6 +1,6 @@
 package com.cleanarch.flashcards.infrastructure.persistence.repositories;
 
-import com.cleanarch.flashcards.application.common.interfaces.IFlashcardRepository;
+import com.cleanarch.flashcards.application.common.interfaces.FlashcardRepository;
 import com.cleanarch.flashcards.domain.entities.Flashcard;
 import com.cleanarch.flashcards.infrastructure.persistence.entities.FlashcardJpaEntity;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
-public class FlashcardRepositoryImpl implements IFlashcardRepository {
+public class FlashcardRepositoryImpl implements FlashcardRepository {
 
     private final FlashcardJpaRepository jpaRepository;
 

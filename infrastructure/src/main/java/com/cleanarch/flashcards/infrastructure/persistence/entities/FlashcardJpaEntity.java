@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -16,12 +16,12 @@ public class FlashcardJpaEntity {
     private String front;
     private String back;
 
-    private LocalDateTime createdDate;
-    private LocalDateTime lastModifiedDate;
+    private Instant createdDate;
+    private Instant lastModifiedDate;
 
     public FlashcardJpaEntity() {}
 
-    public FlashcardJpaEntity(UUID id, String front, String back, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
+    public FlashcardJpaEntity(UUID id, String front, String back, Instant createdDate, Instant lastModifiedDate) {
         this.id = id;
         this.front = front;
         this.back = back;
@@ -38,9 +38,9 @@ public class FlashcardJpaEntity {
     public String getBack() { return back; }
     public void setBack(String back) { this.back = back; }
 
-    public LocalDateTime getCreatedDate() { return createdDate; }
-    public void setCreatedDate(LocalDateTime createdDate) { this.createdDate = createdDate; }
+    public Instant getCreatedDate() { return createdDate; }
+    public void setCreatedDate(Instant createdDate) { this.createdDate = createdDate; }
 
-    public LocalDateTime getLastModifiedDate() { return lastModifiedDate; }
-    public void setLastModifiedDate(LocalDateTime lastModifiedDate) { this.lastModifiedDate = lastModifiedDate; }
+    public Instant getLastModifiedDate() { return lastModifiedDate; }
+    public void setLastModifiedDate(Instant lastModifiedDate) { this.lastModifiedDate = lastModifiedDate; }
 }

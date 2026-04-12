@@ -1,6 +1,6 @@
 package com.cleanarch.flashcards.api.controllers;
 
-import com.cleanarch.flashcards.application.common.interfaces.IFlashcardService;
+import com.cleanarch.flashcards.application.common.interfaces.FlashcardService;
 import com.cleanarch.flashcards.application.common.models.FlashcardDto;
 import com.cleanarch.flashcards.application.features.flashcards.commands.create.CreateFlashcardCommand;
 import jakarta.validation.Valid;
@@ -21,9 +21,9 @@ import java.util.UUID;
 @RequestMapping("/api/v1/flashcards")
 public class FlashcardsController {
 
-    private final IFlashcardService flashcardService;
+    private final FlashcardService flashcardService;
 
-    public FlashcardsController(IFlashcardService flashcardService) {
+    public FlashcardsController(FlashcardService flashcardService) {
         this.flashcardService = flashcardService;
     }
 

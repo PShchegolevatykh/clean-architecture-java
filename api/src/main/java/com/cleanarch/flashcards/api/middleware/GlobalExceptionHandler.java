@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handleNotFoundException(NotFoundException ex) {
         log.warn("Resource not found: {}", ex.getMessage());
         Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
+        body.put("timestamp", Instant.now());
         body.put("message", ex.getMessage());
         body.put("status", HttpStatus.NOT_FOUND.value());
 
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handleGeneralException(Exception ex) {
         log.error("An unexpected error occurred", ex);
         Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
+        body.put("timestamp", Instant.now());
         body.put("message", "An unexpected error occurred");
         body.put("error", ex.getMessage());
         body.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());

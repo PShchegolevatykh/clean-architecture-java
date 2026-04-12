@@ -13,7 +13,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.cleanarch.flashcards</groupId>
+			<artifactId>application</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.cleanarch.flashcards</groupId>
 			<artifactId>infrastructure</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

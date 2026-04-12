@@ -6,7 +6,7 @@ import com.cleanarch.flashcards.application.features.flashcards.commands.create.
 import java.util.List;
 import java.util.UUID;
 
-public interface IFlashcardService {
+public interface FlashcardService {
     FlashcardDto create(CreateFlashcardCommand command);
     FlashcardDto getById(UUID id);
     List<FlashcardDto> getAll();

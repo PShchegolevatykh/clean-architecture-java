@@ -1,18 +1,18 @@
 package com.cleanarch.flashcards.application.common.models;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 public class FlashcardDto {
     private UUID id;
     private String front;
     private String back;
-    private LocalDateTime createdDate;
-    private LocalDateTime lastModifiedDate;
+    private Instant createdDate;
+    private Instant lastModifiedDate;
 
     public FlashcardDto() {}
 
-    public FlashcardDto(UUID id, String front, String back, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
+    public FlashcardDto(UUID id, String front, String back, Instant createdDate, Instant lastModifiedDate) {
         this.id = id;
         this.front = front;
         this.back = back;
@@ -29,9 +29,9 @@ public class FlashcardDto {
     public String getBack() { return back; }
     public void setBack(String back) { this.back = back; }
 
-    public LocalDateTime getCreatedDate() { return createdDate; }
-    public void setCreatedDate(LocalDateTime createdDate) { this.createdDate = createdDate; }
+    public Instant getCreatedDate() { return createdDate; }
+    public void setCreatedDate(Instant createdDate) { this.createdDate = createdDate; }
 
-    public LocalDateTime getLastModifiedDate() { return lastModifiedDate; }
-    public void setLastModifiedDate(LocalDateTime lastModifiedDate) { this.lastModifiedDate = lastModifiedDate; }
+    public Instant getLastModifiedDate() { return lastModifiedDate; }
+    public void setLastModifiedDate(Instant lastModifiedDate) { this.lastModifiedDate = lastModifiedDate; }
 }
